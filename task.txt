@@ -1,0 +1,44 @@
+3. Product Card will contain following information
+ Name of Product
+ Description of Product
+ Price
+ Size, Brand, Color (Price should be changed with change in variant)
+ Discount
+ Cart to Add Number of Products
+ Available Cities
+Delhi
+ Mumbai
+ Chennai
+ Kolkata
+let product = [
+    {
+        "title": "iPhone 9",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 549,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones",
+    },
+    {
+        "title": "iPhone 10",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 649,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Apple",
+        "category": "smartphones",
+    },
+    {
+        "title": "Running Shoes",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 649,
+        "discountPercentage": 12.96,
+        "rating": 4.69,
+        "stock": 94,
+        "brand": "Adidas",
+        "category": "Shoes",
+    }
+];

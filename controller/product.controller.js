@@ -1,49 +1,42 @@
-let product = [
-    {
-        "title": "iPhone 9",
-        "description": "An apple mobile which is nothing like apple",
-        "price": 549,
-        "discountPercentage": 12.96,
-        "rating": 4.69,
-        "stock": 94,
-        "brand": "Apple",
-        "category": "smartphones",
-    },
-    {
-        "title": "iPhone 10",
-        "description": "An apple mobile which is nothing like apple",
-        "price": 649,
-        "discountPercentage": 12.96,
-        "rating": 4.69,
-        "stock": 94,
-        "brand": "Apple",
-        "category": "smartphones",
-    },
-    {
-        "title": "Running Shoes",
-        "description": "An apple mobile which is nothing like apple",
-        "price": 649,
-        "discountPercentage": 12.96,
-        "rating": 4.69,
-        "stock": 94,
-        "brand": "Adidas",
-        "category": "Shoes",
+const product = require('../model/products.model');
+
+// const products = (req,res) =>{
+//     res.send(product);
+// };
+
+// const addproducts = (req,res) =>{
+//     const add = req.body;
+//     product.push(add);
+//     res.send(`${add.title} saved`);
+// };
+const showdata = async (req, res) => {
+    try {
+        const data = await product.find();
+        res.json(data)
     }
-];
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+const productsData = async (req,res) =>{
+    const data = new product({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        productDetails: req.body.productDetails,
+        cities: req.body.cities
+    })
 
-
-const products = (req,res) =>{
-    res.send(product);
+    try {
+        const dataToSave = await data.save();
+        res.json(dataToSave)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 };
-
-const addproducts = (req,res) =>{
-    const add = req.body;
-    product.push(add);
-    res.send(`${add.title} saved`);
-};
-
 
 module.exports = {
-    products,
-    addproducts
+    productsData,
+    showdata
 }

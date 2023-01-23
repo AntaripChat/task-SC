@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dataSchema = new mongoose.Schema({
+const products = new mongoose.Schema({
     name: {
         required: true,
         type: String
@@ -29,6 +29,18 @@ const dataSchema = new mongoose.Schema({
         type: String,  
     }
     
-})
-//Size, Brand, Color
-module.exports = mongoose.model('Data', dataSchema)
+});
+/*
+    {
+        "name": "iPhone 10",
+        "description": "An apple mobile which is nothing like apple",
+        "price": 649,
+        "productDetails":[{
+            "size":"5.8 inches",
+            "brand": "Apple",
+            "color": "Black"
+        }],
+        "cities": "Kolkata",
+    }
+*/
+module.exports = mongoose.model('Products', products)
