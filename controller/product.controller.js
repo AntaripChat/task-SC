@@ -18,7 +18,7 @@ const showdata = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
-const productsData = async (req,res) =>{
+const productsData = async (req, res) => {
     const data = new product({
         name: req.body.name,
         description: req.body.description,
@@ -36,7 +36,29 @@ const productsData = async (req,res) =>{
     }
 };
 
+const productByCities = async (req, res) => {
+    console.log(req.params.key);
+    try {
+        const data = await product.find(
+            {
+                "$or": [
+                    { cities: { $regex: req.params.key } }
+                ]
+            },
+        );
+        if (!data.length) {
+            res.send(`Sorry we are not available in ${req.params.key}.We are only available Deihi,Mumbai,Chennai and Kolkata`);
+        } else {
+            res.send(data);
+        }
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
 module.exports = {
     productsData,
-    showdata
+    showdata,
+    productByCities
 }

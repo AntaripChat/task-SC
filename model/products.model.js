@@ -5,7 +5,7 @@ const products = new mongoose.Schema({
         required: true,
         type: String
     },
-    description:{
+    description: {
         required: true,
         type: String
     },
@@ -13,22 +13,22 @@ const products = new mongoose.Schema({
         required: true,
         type: Number
     },
-    productDetails:[{
-        size:{
+    productDetails: [{
+        size: {
             type: String
         },
-        brand:{
+        brand: {
             type: String
         },
-        color:{
+        color: {
             type: String
         }
     }],
     cities: {
-        require:true,
-        type: String,  
+        require: true,
+        type: String,
     }
-    
+
 });
 /*
     {
